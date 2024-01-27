@@ -1,0 +1,84 @@
+@media screen and (max-width: 1311px) {
+    .left {
+        position: fixed;
+        left: -122%;
+        transition: all .3s;
+        z-index: 1;
+        width: 370px;
+        background: black;
+    }
+
+    .right {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .playBar {
+        width: 95vw;
+    }
+
+    .menu {
+        display: block;
+        width: 35px;
+        margin-right: 17px;
+        cursor: pointer;
+    }
+
+    .cancel {
+        display: block;
+        width: 30px;
+    }
+
+    .timeVol {
+        flex-direction: column;
+    }
+
+    .volume {
+        margin-bottom: 9px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .nav{
+        padding: 8px;
+    }
+
+    .menu {
+        width: 28px;
+    }
+
+    .nav-left button {
+        width: 30px;
+        height: 30px;
+    }
+
+    .playBar {
+        width: 85vw;
+        gap: 3px;
+        flex-direction: column;
+    }
+
+    .songInfo {
+        margin: 0;
+    }
+
+    .seekbar {
+        width: 95%;
+    }
+
+    .cardContainer {
+        justify-content: center;
+    }
+
+    .cardContainer .card {
+        width: 75vw;
+
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .left {
+        width: 340px
+    }
+}

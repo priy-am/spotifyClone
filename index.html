@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/utliz.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+</head>
+
+<body class="bg-black">
+    <div class="container flex bg-black">
+        <div class="left">
+            <div class="home bg-gray m-1 p-1 bodr-rad">
+                <div class="logo m-2">
+                    <img class="inverted" width="110" src="images/logo.svg" alt="Spotify">
+                    <img class="inverted cancel" src="images/cancel.svg" alt="cancel">
+                </div>
+                
+                <ul>
+                    <li class="flex items-center m-2"><img class="inverted" src="images/home.svg" alt="home">Home</li>
+                    <li class="flex items-center inverted-1 m-2 hover"><img class="" src="images/serch.svg"
+                            alt="home">Search</li>
+                </ul>
+            </div>
+
+            <div class="library bg-gray m-1 p-1 bodr-rad">
+                <div class="m-2">
+                    <div class=" lib-icon flex items-center inverted-1 hover"><img class="" src="images/library.svg"
+                            alt="library">Your Library</div>
+
+                </div>
+
+                <div class="songList m-2">
+                    <ul>
+                        
+                    </ul>
+                </div>
+
+                <footer class="flex items-center justify-center">
+                    <div><a href="https://www.spotify.com/us/legal/"> <span>Legal</span></a></div>
+                    <div><a href="https://www.spotify.com/us/privacy/"> <span>Privacy Center</span></a></div>
+                    <div><a href="https://www.spotify.com/us/legal/privacy-policy/"> <span>Privacy Policy</span></a>
+                    </div>
+                    <div><a href="https://www.spotify.com/us/legal/cookies-policy/"> <span>Cookies</span></a></div>
+                    <div><a href="https://www.spotify.com/us/legal/privacy-policy/#s3"> <span>About Ads</span></a>
+                    </div>
+                    <div><a href="https://www.spotify.com/us/accessibility/"> <span>Accessibility</span></a></div>
+                </footer>
+
+            </div>
+        </div>
+        <div class="right bg-gray m-1 bodr-rad">
+            <div class="nav flex items-center">
+                <div class="nav-left flex justify-center">
+                    <img class="menu inverted" src="images/menu.svg" alt="menu">
+                    <button class="flex items-center"><img class="inverted-1" src="images/back-btn.svg"
+                            alt="back-btn"></button>
+                    <button class="flex items-center"><img class="inverted-1" src="images/forward-btn.svg"
+                            alt="forward-btn"></button>
+                </div>
+                <div class="nav-right">
+                    <button class="btn btn-bgBlack">Sign Up</button>
+                    <button class="btn btn-bgWhite">Log In</button>
+                </div>
+            </div>
+
+            <div class="spotifyPlaylist m-2">
+                <h1>Spotify Playlist</h1>
+                <div class="cardContainer">
+                    
+
+                </div>
+
+                <div class="playBar">
+                    <!-- <input type="range" name="range" id="MyProgressBar" min="0" value="0" max="100"> -->
+                    <div class="seekbar">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="songInfo"></div>
+                    <div class="songButton flex justify-center">
+                        <img class="inverted" id="previous" src="images/previous.svg" alt="previus">
+                        <img class="inverted" id="play" src="images/play2.svg" alt="Play">
+                        <img class="inverted" id="next" src="images/next.svg" alt="next">
+                    </div>
+
+                    <div class="timeVol flex items-center">
+                        <div class="songTime"></div>
+                        <div class="volume flex items-center">
+                            <img class="inverted" src="images/volume.svg" alt="volume">
+                            <div class="range flex"><input type="range" name="volume"id=""> </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+.border {
+    border: 2px solid red;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.bg-black {
+    background: black;
+    color: white;
+}
+
+.bg-gray {
+    background: #121212;
+    /* color: white; */
+}
+
+.inverted {
+    filter: invert(1);
+}
+
+.inverted-1 {
+    filter: invert(0.7);
+    color: black;
+}
+
+
+.inverted-1:hover {
+    filter: invert(1);
+    /* color: white; */
+}
+
+.m-1 {
+    margin: 8px;
+}
+
+.m-2 {
+    margin: 19px;
+}
+
+.p-1 {
+    padding: 8px 12px;
+}
+
+
+.bodr-rad {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #333;
+    /* Dark color for the thumb */
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+    /* Dark color for the thumb on hover */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #222;
+    /* Dark color for the track */
+}
