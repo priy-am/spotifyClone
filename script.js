@@ -21,7 +21,7 @@ function secondsToMinutesAndSeconds(seconds) {
 
 //when someone clik on ply btn then music is play
 const playMusic = (track, pause = false) => {
-    currentSong.src = `/${currFolder}/` + track
+    currentSong.src = `/songs/${currFolder}/` + track
     // let audio = new Audio("/songs/" + track);
     if (!pause) {
         let APlay = document.querySelector(".playNow").getElementsByTagName("img")[0];
@@ -36,7 +36,7 @@ const playMusic = (track, pause = false) => {
 //get all the songs
 async function getSongs(folder) {
     currFolder = folder;
-    let a = await fetch(`${currFolder}/`);
+    let a = await fetch(`/songs/${currFolder}/`);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -190,7 +190,14 @@ async function main() {
 
     document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e) => {
         console.log("setting volume to " + e.target.value + " out of 100")
-        currentSong.volume = parseInt(e.target.value) / 100
+        currentSong.volume = parseInt(e.target.value) / 100;
+        if(parseInt(e.target.value) == 0){
+            document.querySelector(".volume>img").src = document.querySelector(".volume>img").src.replace("/images/volume.svg", "/images/muted.svg")
+        }
+
+        if (currentSong.volume > 0){
+            document.querySelector(".volume>img").src = document.querySelector(".volume>img").src.replace("/images/muted.svg", "/images/volume.svg")
+        }
 
     })
 
