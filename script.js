@@ -21,7 +21,7 @@ function secondsToMinutesAndSeconds(seconds) {
 
 //when someone clik on ply btn then music is play
 const playMusic = (track, pause = false) => {
-    currentSong.src = `/songs/${currFolder}/` + track
+    currentSong.src = `/${currFolder}/` + track
     // let audio = new Audio("/songs/" + track);
     if (!pause) {
         let APlay = document.querySelector(".playNow").getElementsByTagName("img")[0];
@@ -36,7 +36,7 @@ const playMusic = (track, pause = false) => {
 //get all the songs
 async function getSongs(folder) {
     currFolder = folder;
-    let a = await fetch(`/songs/${currFolder}/`);
+    let a = await fetch(`/${folder}/`);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -83,7 +83,7 @@ async function getSongs(folder) {
 
 // display all the album on the page function...
 async function displayAlbum() {
-    let a = await fetch(`/songs`);
+    let a = await fetch(`/songs/`);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
