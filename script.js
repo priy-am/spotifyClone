@@ -7,13 +7,16 @@ let next = document.getElementById("next")
 let previous = document.getElementById("previous")
 
 function secondsToMinutesAndSeconds(seconds) {
+    if (isNaN(seconds) || seconds < 0) {
+        return "00:00";
+    }
     // Calculate minutes and remaining seconds
-    var minutes = Math.floor(seconds / 60);
-    var remainingSeconds = Math.floor(seconds % 60);
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
 
     // Format the result with leading zeros
-    var formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
-    var formattedSeconds = remainingSeconds < 10 ? '0' + remainingSeconds : remainingSeconds;
+    const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+    const formattedSeconds = remainingSeconds < 10 ? '0' + remainingSeconds : remainingSeconds;
 
     // Return the result in the desired format
     return formattedMinutes + ':' + formattedSeconds;
@@ -21,7 +24,8 @@ function secondsToMinutesAndSeconds(seconds) {
 
 //when someone clik on ply btn then music is play
 const playMusic = (track, pause = false) => {
-    currentSong.src = `/${currFolder}/` + track
+    const trackURL = new URL(track, new URL(`./${currFolder}/`, window.location.href));
+    currentSong.src = trackURL.href;
     // let audio = new Audio("/songs/" + track);
     if (!pause) {
         let APlay = document.querySelector(".playNow").getElementsByTagName("img")[0];
@@ -36,7 +40,8 @@ const playMusic = (track, pause = false) => {
 //get all the songs
 async function getSongs(folder) {
     currFolder = folder;
-    let a = await fetch(`/${folder}/`);
+    const url = new URL(`./${currFolder}/`, window.location.href);
+    let a = await fetch(url.href);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -83,7 +88,8 @@ async function getSongs(folder) {
 
 // display all the album on the page function...
 async function displayAlbum() {
-    let a = await fetch(`/songs/`);
+    const url = new URL("./songs", window.location.href);
+    let a = await fetch(url.href);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -114,7 +120,8 @@ async function displayAlbum() {
 //start main function
 async function main() {
     //get the song list form all song
-    songs = await getSongs("songs/all");
+    const songsUrl = new URL("./songs/all", window.location.href);
+    songs = await getSongs(songsUrl.pathname);
     playMusic(songs[0], true)
 
     //Display all the album on the page...
