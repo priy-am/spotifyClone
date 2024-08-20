@@ -24,7 +24,9 @@ function secondsToMinutesAndSeconds(seconds) {
 
 //when someone clik on ply btn then music is play
 const playMusic = (track, pause = false) => {
-    const trackURL = new URL(track, new URL(`./${currFolder}/`, window.location.href));
+    const trackURL = new URL(track, new URL(`./${currFolder}/`, window.location.origin));
+    // const trackURL = new URL(track, new URL(`./${currFolder}/`, "https://echbeat.netlify.app/"));
+    console.log(`url ${trackURL}`)
     currentSong.src = trackURL.href;
     // let audio = new Audio("/songs/" + track);
     if (!pause) {
@@ -40,7 +42,8 @@ const playMusic = (track, pause = false) => {
 //get all the songs
 async function getSongs(folder) {
     currFolder = folder;
-    const url = new URL(`./${currFolder}/`, window.location.href);
+    const url = new URL(`./${currFolder}/`, window.location.origin);
+    // const url = new URL(`./${currFolder}/`, "https://echbeat.netlify.app/");
     let a = await fetch(url.href);
     let response = await a.text();
     let div = document.createElement("div");
@@ -88,7 +91,8 @@ async function getSongs(folder) {
 
 // display all the album on the page function...
 async function displayAlbum() {
-    const url = new URL("./songs", window.location.href);
+    const url = new URL("./songs", window.location.origin);
+    // const url = new URL("./songs", "https://echbeat.netlify.app/");
     let a = await fetch(url.href);
     let response = await a.text();
     let div = document.createElement("div");
@@ -120,7 +124,9 @@ async function displayAlbum() {
 //start main function
 async function main() {
     //get the song list form all song
-    const songsUrl = new URL("./songs/all", window.location.href);
+    const songsUrl = new URL("./songs/all", window.location.origin);
+    // const songsUrl = new URL("./songs/all", "https://echbeat.netlify.app/");
+    console.log(songsUrl.href);
     songs = await getSongs(songsUrl.pathname);
     playMusic(songs[0], true)
 
